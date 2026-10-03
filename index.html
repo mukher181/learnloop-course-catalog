@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLoop - Course Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-container">
+            <h1 class="logo">LearnLoop</h1>
+            <nav class="main-nav">
+                <a href="#" class="active-nav">Catalog</a>
+                <a href="#">My Courses</a>
+                <a href="#">Instructors</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container main-content">
+        <section class="catalog-section">
+            <header class="catalog-header">
+                <h2>Explore Courses</h2>
+                <p>Advance your career with industry-leading online courses.</p>
+            </header>
+
+            <!-- Hidden Radio Inputs at Section Level for Pure CSS Filtering -->
+            <input type="radio" name="filter" id="filter-all" checked class="filter-radio">
+            <input type="radio" name="filter" id="filter-dev" class="filter-radio">
+            <input type="radio" name="filter" id="filter-design" class="filter-radio">
+            <input type="radio" name="filter" id="filter-business" class="filter-radio">
+
+            <!-- Control Bar with Labels -->
+            <div class="control-bar">
+                <div class="filter-group">
+                    <label for="filter-all" class="filter-btn">All Courses</label>
+                    <label for="filter-dev" class="filter-btn">Development</label>
+                    <label for="filter-design" class="filter-btn">Design</label>
+                    <label for="filter-business" class="filter-btn">Business</label>
+                </div>
+                <div class="sort-group">
+                    <span class="sort-placeholder">Sort by: Most Popular</span>
+                </div>
+            </div>
+
+            <!-- Course Grid (Cards with data-category attributes) -->
+            <div class="course-grid">
+                
+                <!-- Card 1: Development -->
+                <article class="course-card" data-category="Development">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course1/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course1/500/333">
+                        <img src="https://picsum.photos/seed/course1/400/266" alt="Advanced React thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Development</span>
+                        <h3 class="course-title">Advanced React & Next.js Masterclass</h3>
+                        <p class="course-instructor">By Sarah Jenkins</p>
+                        <div class="course-meta">
+                            <span class="course-price">$89.99</span>
+                            <span class="course-rating">★ 4.9</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2: Design -->
+                <article class="course-card" data-category="Design">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course2/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course2/500/333">
+                        <img src="https://picsum.photos/seed/course2/400/266" alt="UI/UX Design thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Design</span>
+                        <h3 class="course-title">UI/UX Design Systems & Figma Pro</h3>
+                        <p class="course-instructor">By Alex Morgan</p>
+                        <div class="course-meta">
+                            <span class="course-price">$74.99</span>
+                            <span class="course-rating">★ 4.8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Development -->
+                <article class="course-card" data-category="Development">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course3/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course3/500/333">
+                        <img src="https://picsum.photos/seed/course3/400/266" alt="Python thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Development</span>
+                        <h3 class="course-title">Python for Data Science & Machine Learning</h3>
+                        <p class="course-instructor">By Dr. Michael Chen</p>
+                        <div class="course-meta">
+                            <span class="course-price">$94.99</span>
+                            <span class="course-rating">★ 4.9</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4: Business -->
+                <article class="course-card" data-category="Business">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course4/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course4/500/333">
+                        <img src="https://picsum.photos/seed/course4/400/266" alt="Digital Marketing thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Business</span>
+                        <h3 class="course-title">Digital Marketing & Growth Hacking</h3>
+                        <p class="course-instructor">By Emma Watson</p>
+                        <div class="course-meta">
+                            <span class="course-price">$59.99</span>
+                            <span class="course-rating">★ 4.7</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5: Development -->
+                <article class="course-card" data-category="Development">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course5/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course5/500/333">
+                        <img src="https://picsum.photos/seed/course5/400/266" alt="Node.js thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Development</span>
+                        <h3 class="course-title">Full-Stack Node.js & Express Architecture</h3>
+                        <p class="course-instructor">By David Miller</p>
+                        <div class="course-meta">
+                            <span class="course-price">$84.99</span>
+                            <span class="course-rating">★ 4.8</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6: Design -->
+                <article class="course-card" data-category="Design">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course6/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course6/500/333">
+                        <img src="https://picsum.photos/seed/course6/400/266" alt="Mobile App UI thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Design</span>
+                        <h3 class="course-title">Mobile App UI/UX Principles & Patterns</h3>
+                        <p class="course-instructor">By Jessica Taylor</p>
+                        <div class="course-meta">
+                            <span class="course-price">$69.99</span>
+                            <span class="course-rating">★ 4.9</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 7: Business -->
+                <article class="course-card" data-category="Business">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course7/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course7/500/333">
+                        <img src="https://picsum.photos/seed/course7/400/266" alt="Finance thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Business</span>
+                        <h3 class="course-title">Corporate Finance & Financial Modeling</h3>
+                        <p class="course-instructor">By Robert Downey</p>
+                        <div class="course-meta">
+                            <span class="course-price">$99.99</span>
+                            <span class="course-rating">★ 4.6</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 8: Development -->
+                <article class="course-card" data-category="Development">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course8/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course8/500/333">
+                        <img src="https://picsum.photos/seed/course8/400/266" alt="Cybersecurity thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Development</span>
+                        <h3 class="course-title">Introduction to Ethical Hacking & Security</h3>
+                        <p class="course-instructor">By Kevin Mitnick</p>
+                        <div class="course-meta">
+                            <span class="course-price">$89.99</span>
+                            <span class="course-rating">★ 4.9</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 9: Business -->
+                <article class="course-card" data-category="Business">
+                    <picture class="course-thumbnail">
+                        <source media="(min-width: 1024px)" srcset="https://picsum.photos/seed/course9/600/400">
+                        <source media="(min-width: 600px)" srcset="https://picsum.photos/seed/course9/500/333">
+                        <img src="https://picsum.photos/seed/course9/400/266" alt="Product Management thumbnail" loading="lazy">
+                    </picture>
+                    <div class="course-info">
+                        <span class="course-category">Business</span>
+                        <h3 class="course-title">Agile Product Management & Scrum Mastery</h3>
+                        <p class="course-instructor">By Lisa Kudrow</p>
+                        <div class="course-meta">
+                            <span class="course-price">$79.99</span>
+                            <span class="course-rating">★ 4.7</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 LearnLoop. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
