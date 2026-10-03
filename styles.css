@@ -1,0 +1,328 @@
+/* ==========================================================
+   1. RESET & VARIABLES
+   ========================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --accent: #ec4899;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(99, 102, 241, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.site-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.65rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main-nav {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .main-nav {
+        display: flex;
+        gap: 2rem;
+    }
+    .main-nav a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: var(--transition);
+    }
+    .main-nav a:hover, .main-nav a.active-nav {
+        color: var(--primary);
+    }
+}
+
+/* Main Content */
+.main-content {
+    padding: 3rem 1.5rem;
+}
+
+.catalog-header {
+    margin-bottom: 2.5rem;
+}
+
+.catalog-header h2 {
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.catalog-header p {
+    color: var(--text-muted);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+/* ==========================================================
+   PURE CSS FILTERING & INTERACTIVE CHECKBOX HACK
+   ========================================================== */
+.filter-radio {
+    display: none; /* Hide real radio buttons */
+}
+
+.control-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+    background: var(--card-bg);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    background: #f1f5f9;
+    border: 1px solid transparent;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-align: left;
+    transition: var(--transition);
+    display: block;
+}
+
+.filter-btn:hover {
+    background: #e2e8f0;
+    color: var(--text-main);
+}
+
+/* Button Active State Styling */
+#filter-all:checked ~ .control-bar label[for="filter-all"],
+#filter-dev:checked ~ .control-bar label[for="filter-dev"],
+#filter-design:checked ~ .control-bar label[for="filter-design"],
+#filter-business:checked ~ .control-bar label[for="filter-business"] {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+/* REAL CARD FILTERING LOGIC USING CSS */
+#filter-dev:checked ~ .course-grid .course-card:not([data-category="Development"]),
+#filter-design:checked ~ .course-grid .course-card:not([data-category="Design"]),
+#filter-business:checked ~ .course-grid .course-card:not([data-category="Business"]) {
+    display: none;
+}
+
+.sort-group {
+    display: none;
+}
+
+.sort-placeholder {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-main);
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background: #f8fafc;
+    display: inline-block;
+}
+
+/* Course Grid */
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.course-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.course-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #cbd5e1;
+}
+
+.course-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.course-card:hover .course-thumbnail img {
+    transform: scale(1.05);
+}
+
+.course-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.course-category {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.08em;
+}
+
+.course-title {
+    font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.course-instructor {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.course-meta {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.course-price {
+    font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.course-rating {
+    font-size: 0.9rem;
+    font-weight: 700;
+    background: #fef3c7;
+    color: #b45309;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 4rem;
+}
+
+/* ==========================================================
+   BREAKPOINT: TABLET (600px - 1023px)
+   ========================================================== */
+@media (min-width: 600px) {
+    .control-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .filter-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .filter-btn {
+        text-align: center;
+        padding: 0.6rem 1rem;
+    }
+
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ==========================================================
+   BREAKPOINT: DESKTOP (≥1024px) - Optimized Card Sizes
+   ========================================================== */
+@media (min-width: 1024px) {
+    .sort-group {
+        display: block;
+    }
+
+    /* Desktop par 3 columns fix rakhein taake cards bohot baray stretch na hon */
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr); 
+        max-width: 1200px;
+    }
+}
