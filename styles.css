@@ -107,7 +107,7 @@ body {
    PURE CSS FILTERING & INTERACTIVE CHECKBOX HACK
    ========================================================== */
 .filter-radio {
-    display: none; /* Hide real radio buttons */
+    display: none;
 }
 
 .control-bar {
@@ -147,7 +147,6 @@ body {
     color: var(--text-main);
 }
 
-/* Button Active State Styling */
 #filter-all:checked ~ .control-bar label[for="filter-all"],
 #filter-dev:checked ~ .control-bar label[for="filter-dev"],
 #filter-design:checked ~ .control-bar label[for="filter-design"],
@@ -157,7 +156,6 @@ body {
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
-/* REAL CARD FILTERING LOGIC USING CSS */
 #filter-dev:checked ~ .course-grid .course-card:not([data-category="Development"]),
 #filter-design:checked ~ .course-grid .course-card:not([data-category="Design"]),
 #filter-business:checked ~ .course-grid .course-card:not([data-category="Business"]) {
@@ -311,7 +309,6 @@ body {
     }
 }
 
-
 /* ==========================================================
    BREAKPOINT: DESKTOP (≥1024px) - Optimized Card Sizes
    ========================================================== */
@@ -320,7 +317,6 @@ body {
         display: block;
     }
 
-    /* Desktop par 3 columns fix rakhein taake cards bohot baray stretch na hon */
     .course-grid {
         grid-template-columns: repeat(3, 1fr); 
         max-width: 1200px;
